@@ -11,6 +11,8 @@ ns = api.namespace('fibonacci', description='fibonacci operation')
 
 
 @ns.route('/<path:input>')
+@api.response(200, 'Success - sequence returned')
+@api.response(400, 'Invalid Input')
 @api.doc(params={'input': 'The count of Fibonacci sequence numbers to return.'})
 class Fibonappi(Resource):
     '''Get the desired count of numbers in the Fibonacci sequence.'''
