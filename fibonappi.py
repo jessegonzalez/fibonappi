@@ -1,8 +1,10 @@
 from flask import Flask
 from flask_restplus import Api, Resource
 
+VERSION = '0.1.0'
+
 app = Flask(__name__)
-api = Api(app, version='0.1.0', title='Fibonacci Sequence API',
+api = Api(app, version=VERSION, title='Fibonacci Sequence API',
           description='An API that returns the first n integers of the Fibonacci Sequence.',
           validate=True
           )
