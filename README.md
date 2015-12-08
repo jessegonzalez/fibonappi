@@ -8,7 +8,7 @@ Use pyenv, virtualenv, or virtualenv wrapper to create a virtualenv using python
 For example:
 ```
 pyenv virtualenv 2.7.6 fibonappi
-pyenv actictivate fibonappi
+pyenv activate fibonappi
 ```
 
 Run Tests
@@ -18,15 +18,15 @@ python setup.py test
 ```
 
 
-Run Application - Test
+Test Application
 ----------------------
 ```
-python fibonappi.py
+python fibonappi/fibonappi.py
 ```
 
 Now navigate to http://localhost:5000 for some Swagger!
 
-Run Application - Production
+Run Application - Hard Way
 ----------------------------
 ```
 apt-get update
@@ -46,11 +46,11 @@ chown www-data:www-data /var/log/fibonappi
 cp /opt/fibonappi/salt/fibonappi/files/etc/supervisor/conf.d/fibonappi.conf /etc/supervisor/conf.d/
 supervisorctl reread && supervisorctl reload
 rm /etc/nginx/sites-enabled/default
-cp /opt/fibonappi/salt/fibonappi/salt/files/etc/nginx/sites-available/fibonappi /etc/nginx/sites-available/fibonappi
+cp /opt/fibonappi/salt/fibonappi/files/etc/nginx/sites-available/fibonappi /etc/nginx/sites-available/fibonappi
 ln -s /etc/nginx/sites-available/fibonappi /etc/nginx/sites-enabled/fibonappi
 service nginx restart
 ```
 
-Automate with SaltStack
+Run Application - Easy Way
 -----------------------
-Use the SaltStack formula under salt/fibonappi to make it happen.
+Use the SaltStack formula under salt/fibonappi to make it happen. Just drop it under your configured file_roots and update your salt/top.sls file.
