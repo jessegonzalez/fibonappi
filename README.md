@@ -43,14 +43,14 @@ chmod 0777 /var/run/fibonappi
 chown www-data:www-data /var/run/fibonappi
 mkdir /var/log/fibonappi
 chown www-data:www-data /var/log/fibonappi
-cp /opt/fibonappi/fibonappi.conf /etc/supervisor/conf.d/
+cp /opt/fibonappi/salt/fibonappi/files/etc/supervisor/conf.d/fibonappi.conf /etc/supervisor/conf.d/
 supervisorctl reread && supervisorctl reload
 rm /etc/nginx/sites-enabled/default
-cp /opt/fibonappi/fibonappi-nginx /etc/nginx/sites-available/fibonappi
+cp /opt/fibonappi/salt/fibonappi/salt/files/etc/nginx/sites-available/fibonappi /etc/nginx/sites-available/fibonappi
 ln -s /etc/nginx/sites-available/fibonappi /etc/nginx/sites-enabled/fibonappi
 service nginx restart
 ```
 
 Automate with SaltStack
 -----------------------
-Use the SaltStack formula under salt/fibonappi to make it happen
+Use the SaltStack formula under salt/fibonappi to make it happen.

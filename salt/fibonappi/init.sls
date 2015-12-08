@@ -34,7 +34,7 @@ file_/var/log/fibonappi:
 file_/etc/supervisor/conf.d/fibonappi.conf:
   file.managed:
     - name: /etc/supervisor/conf.d/fibonappi.conf
-    - source: /opt/fibonappi/fibonappi.conf
+    - source: salt://fibonappi/files/etc/supervisor/conf.d/fibonappi.conf
     - require:
       - pkg: pkg_supervisor
       - git: git_fibonappi
@@ -48,7 +48,7 @@ file_/etc/nginx/sites-enabled/default:
 file_/etc/nginx/sites-available/fibonappi:
   file.managed:
     - name: /etc/nginx/sites-avilable/fibonappi
-    - source: /opt/fibonappi/fibonappi-nginx
+    - source: salt://fibonappi/files/etc/nginx/sites-available/fibonappi
     - require:
       - pkg: pkg_nginx
       - git: git_fibonappi
