@@ -15,6 +15,12 @@ ns = api.namespace('fibonacci', description='fibonacci operation')
 class Fibonappi(Resource):
     '''Get the desired count of numbers in the Fibonacci sequence.'''
 
+    def abort_if_non_int(self, input):
+        try:
+            return int(input)
+        except ValueError:
+            api.abort(400, 'Invalid input {}. Integer required.'.format(input))
+
     def abort_on_negative(self, number):
         if number < 0:
             api.abort(400, "The number {} does not work for the Fibonacci sequence.".format(number))
@@ -27,11 +33,7 @@ class Fibonappi(Resource):
     @api.doc(description='number should be greater than 0')
     def get(self, input):
         '''Calculate the Fibonacci sequence'''
-        try:
-          number = int(input)
-        except ValueError as e:
-          api.abort(400, 'Invalid input')
-
+        number = self.abort_if_non_int(input)
         self.abort_on_negative(number)
         return [i for i in self.fib(number)]
 
