@@ -9,6 +9,6 @@ setup(name='fibonappi',
       author_email='jesse.gonzalez.jr@gmail.com',
       url='https://github.com/jessegonzalez/fibonappi',
       package=find_packages(),
-      test_suite="fibonappi_test",
+      test_suite="fibonappi.fibonappi_test",
       install_requires=['flask-restplus', 'uwsgi']
       )

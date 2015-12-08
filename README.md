@@ -32,17 +32,17 @@ Run Application - Production
 apt-get update
 apt-get install git nginx python-dev python-virtualenv supervisor
 cd /opt
-git clone https://github.com/jessegonzalez/fiboonappi.git
+git clone https://github.com/jessegonzalez/fibonappi.git
 virtualenv /opt/fibonappi/venv
-source /opt/fibonapp/venv/bin/activate
+source /opt/fibonappi/venv/bin/activate
 mkdir /var/run/fibonappi
 chmod 0777 /var/run/fibonappi
 mkdir /var/log/fibonappi
 chown www-data:www-data /var/run/fibonappi
-cp /opt/fibonappi/fibonappi/fibonappi.conf /etc/supervisor/conf.d/
+cp /opt/fibonappi/fibonappi.conf /etc/supervisor/conf.d/
 supervisorctl reread && supervisorctl reload
 rm /etc/nginx/sites-enabled/default
-cp /opt/fibonappi/fibonappi/fibonappi-nginx /etc/nginx/sites-available/fibonappi
+cp /opt/fibonappi/fibonappi-nginx /etc/nginx/sites-available/fibonappi
 ln -s /etc/nginx/sites-available/fibonappi /etc/nginx/sites-enabled/fibonappi
 service nginx restart
 ```
