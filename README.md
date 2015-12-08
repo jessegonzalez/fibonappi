@@ -51,3 +51,6 @@ ln -s /etc/nginx/sites-available/fibonappi /etc/nginx/sites-enabled/fibonappi
 service nginx restart
 ```
 
+Automate with SaltStack
+-----------------------
+Use the SaltStack formula under salt/fibonappi to make it happen
